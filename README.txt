@@ -1,13 +1,16 @@
-Modul 2 Lernapp v3.2 – 2 Profile
+Modul 2 Lernapp v3.3 – Profile Plus
 
 Neu:
-- 2 getrennte Profile
-- jedes Profil hat eigenen Fortschritt
-- eigene unsichere Karten
-- eigene Lernserie
-- Profilnamen können umbenannt werden
-- aktives Profil wird gespeichert
+- Beliebig viele Profile
+- Button „+ Profil hinzufügen“
+- Eigener Fortschritt je Profil
+- Eigene unsichere Karten je Profil
+- Eigene Lernserie je Profil
+- Aktives Profil umbenennen
+- Aktives Profil löschen
+- Mindestens ein Profil bleibt bestehen
+- Die zwei alten Profile aus v3.2 werden automatisch übernommen
 
 Hinweis:
-Die Profildaten werden lokal im Browser auf diesem Gerät gespeichert.
-Wenn die Browserdaten gelöscht werden, gehen die Fortschritte verloren.
+Die Profildaten werden lokal im Browser gespeichert.
+Beim Löschen der Browserdaten gehen die Fortschritte verloren.
