@@ -1,13 +1,15 @@
-Modul 2 Lernapp v3.5 – Schwierigkeitsgrade & bessere Antwortvarianz
+Modul 2 Lernapp v5.0 – Lernsystem
 
 Neu:
-- 🟢 Leicht, 🟡 Mittel, 🔴 Schwer
-- Schwierigkeitsgrad wird bei Quizfragen angezeigt
-- Eigene Quiz-Buttons für jede Schwierigkeit
-- Leicht: deutlich unterscheidbare Antworten
-- Mittel: plausible Antworten aus demselben Thema
-- Schwer: möglichst ähnliche Antworten nach Thema, Art, Einheit und Antwortform
-- Gemischtes Quiz, Rechenquiz und Schwächenmodus bleiben erhalten
-- Profile und Spickzettel bleiben erhalten
+- kompakter Profilbereich mit Dropdown
+- 21 ausführliche Lernzettel
+- Mini-Beispiele und Selbstchecks
+- Lernzettel pro Profil als gelernt markieren
+- themenbezogener Fortschritt
+- automatische Empfehlung „Heute weiterlernen“
+- Fokusquiz zum empfohlenen Thema
+- Lernpfad nach Prüfungsbereichen
+- verbesserte Rechen-Distraktoren für schwere Quizfragen
+- Spickzettel, 221 Karten und 4 Probeklausuren bleiben erhalten
 
-Die Schwierigkeit dient als Lernorientierung und ist keine offizielle DAA-Einstufung.
+Hinweis: Lernprioritäten sind eine Lernorientierung, keine offizielle DAA-Gewichtung.
