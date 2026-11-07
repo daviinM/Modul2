@@ -1,16 +1,13 @@
-Modul 2 Lernapp v3.3 – Profile Plus
+Modul 2 Lernapp v3.5 – Schwierigkeitsgrade & bessere Antwortvarianz
 
 Neu:
-- Beliebig viele Profile
-- Button „+ Profil hinzufügen“
-- Eigener Fortschritt je Profil
-- Eigene unsichere Karten je Profil
-- Eigene Lernserie je Profil
-- Aktives Profil umbenennen
-- Aktives Profil löschen
-- Mindestens ein Profil bleibt bestehen
-- Die zwei alten Profile aus v3.2 werden automatisch übernommen
+- 🟢 Leicht, 🟡 Mittel, 🔴 Schwer
+- Schwierigkeitsgrad wird bei Quizfragen angezeigt
+- Eigene Quiz-Buttons für jede Schwierigkeit
+- Leicht: deutlich unterscheidbare Antworten
+- Mittel: plausible Antworten aus demselben Thema
+- Schwer: möglichst ähnliche Antworten nach Thema, Art, Einheit und Antwortform
+- Gemischtes Quiz, Rechenquiz und Schwächenmodus bleiben erhalten
+- Profile und Spickzettel bleiben erhalten
 
-Hinweis:
-Die Profildaten werden lokal im Browser gespeichert.
-Beim Löschen der Browserdaten gehen die Fortschritte verloren.
+Die Schwierigkeit dient als Lernorientierung und ist keine offizielle DAA-Einstufung.
