@@ -1,15 +1,11 @@
-Modul 2 Lernapp v5.0 – Lernsystem
+Modul 2 Lernapp v5.1 – ausführlichere Lernfragen
 
-Neu:
-- kompakter Profilbereich mit Dropdown
-- 21 ausführliche Lernzettel
-- Mini-Beispiele und Selbstchecks
-- Lernzettel pro Profil als gelernt markieren
-- themenbezogener Fortschritt
-- automatische Empfehlung „Heute weiterlernen“
-- Fokusquiz zum empfohlenen Thema
-- Lernpfad nach Prüfungsbereichen
-- verbesserte Rechen-Distraktoren für schwere Quizfragen
-- Spickzettel, 221 Karten und 4 Probeklausuren bleiben erhalten
+Überarbeitet:
+- 204 kurze/stichwortartige Fragen ausführlicher formuliert.
+- Fragen fordern jetzt klarer zum Erklären, Rechnen, Begründen oder Interpretieren auf.
+- Antworten, Lerninhalte und Prüfungslogik bleiben unverändert.
+- Profile, Fortschritt, 21 Lernzettel, Schwierigkeitsgrade und Probeklausuren bleiben erhalten.
 
-Hinweis: Lernprioritäten sind eine Lernorientierung, keine offizielle DAA-Gewichtung.
+Beispiel:
+„Division in Polarform?“
+→ „Wie geht man bei der Division zweier komplexer Zahlen in Polarform vor?“
