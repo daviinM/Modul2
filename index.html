@@ -90,6 +90,16 @@ h2{font-size:20px;margin:18px 0 10px} h3{margin:0 0 9px;font-size:16px} p{line-h
 .formulaLine{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-weight:700;padding:6px 8px;background:#08101f;border-radius:8px;margin:5px 0;overflow:auto}
 
 </style>
+
+<style>
+.calcGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:10px 0}
+.calcGrid label{font-size:13px;color:var(--muted)}
+.calcGrid input{display:block;width:100%;margin-top:5px;box-sizing:border-box;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+.calcOut{margin-top:12px;padding:11px 12px;border-radius:12px;background:rgba(127,127,127,.08);min-height:22px;line-height:1.55}
+.formulaBox{margin-top:10px;padding:9px 11px;border-left:3px solid var(--accent);background:rgba(127,127,127,.06);border-radius:8px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px}
+.calcOut strong{font-size:1.05em}
+</style>
+
 </head>
 <body>
 <header><h1>⚡ Modul 2 – Prüfungsvorbereitung</h1><div class="sub">DAA Elektrotechnik · Lernzettel · Lernkarten · Quiz · Probeklausuren</div></header>
@@ -340,6 +350,134 @@ h2{font-size:20px;margin:18px 0 10px} h3{margin:0 0 9px;font-size:16px} p{line-h
       <p>• Bei Wirkungsgrad immer prüfen: Ergebnis ≤ 100 %.</p>
     </div>
 
+  </div>
+</section>
+
+
+<section id="calculator" style="display:none">
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <div>
+        <h2 style="margin-bottom:4px">🧮 Modul-2-Rechner</h2>
+        <div class="muted">Schnell rechnen + Rechenweg kontrollieren. Die Formeln bleiben sichtbar, damit du nicht nur Ergebnisse abliest.</div>
+      </div>
+      <button onclick="showSection('home')">← Zurück</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ RLC-Reihe</h3>
+      <p class="muted">Berechnet XL, XC, komplexes Z, Betrag und Winkel.</p>
+      <div class="calcGrid">
+        <label>R [Ω]<input id="rlcR" type="number" step="any" value="50"></label>
+        <label>L [mH]<input id="rlcL" type="number" step="any" value="120"></label>
+        <label>C [µF]<input id="rlcC" type="number" step="any" value="47"></label>
+        <label>f [Hz]<input id="rlcF" type="number" step="any" value="50"></label>
+      </div>
+      <button class="primary" onclick="calcRLC()">Berechnen</button>
+      <div id="rlcOut" class="calcOut"></div>
+      <div class="formulaBox">XL = 2πfL · XC = 1/(2πfC) · Z = R + j(XL − XC)</div>
+    </div>
+
+    <div class="card">
+      <h3>🔄 REC ↔ POL</h3>
+      <p class="muted">Wie auf deinem Casio: Real-/Imaginärteil ↔ Betrag/Winkel.</p>
+      <div class="calcGrid">
+        <label>Realteil a<input id="recA" type="number" step="any" value="6"></label>
+        <label>Imaginärteil b<input id="recB" type="number" step="any" value="8"></label>
+      </div>
+      <button onclick="calcRecPol()">REC → POL</button>
+      <div id="recPolOut" class="calcOut"></div>
+      <hr style="border:none;border-top:1px solid var(--border);margin:14px 0">
+      <div class="calcGrid">
+        <label>Betrag r<input id="polR" type="number" step="any" value="10"></label>
+        <label>Winkel θ [°]<input id="polPhi" type="number" step="any" value="53.13"></label>
+      </div>
+      <button onclick="calcPolRec()">POL → REC</button>
+      <div id="polRecOut" class="calcOut"></div>
+    </div>
+
+    <div class="card">
+      <h3>📉 RC-Grenzfrequenz</h3>
+      <div class="calcGrid">
+        <label>R [Ω]<input id="fgR" type="number" step="any" value="1000"></label>
+        <label>C [nF]<input id="fgC" type="number" step="any" value="100"></label>
+      </div>
+      <button onclick="calcFg()">fg berechnen</button>
+      <div id="fgOut" class="calcOut"></div>
+      <div class="formulaBox">fg = 1 / (2πRC)</div>
+    </div>
+
+    <div class="card">
+      <h3>📊 dB-Rechner</h3>
+      <div class="calcGrid">
+        <label>Ue [V]<input id="dbUe" type="number" step="any" value="2"></label>
+        <label>Ua [V]<input id="dbUa" type="number" step="any" value="1"></label>
+      </div>
+      <button onclick="calcDb()">Spannungs-dB</button>
+      <div id="dbOut" class="calcOut"></div>
+      <div class="formulaBox">a = 20 · log10(Ua/Ue)</div>
+    </div>
+
+    <div class="card">
+      <h3>🔺 OPV</h3>
+      <div class="calcGrid">
+        <label>R1 [kΩ]<input id="opR1" type="number" step="any" value="10"></label>
+        <label>R2 [kΩ]<input id="opR2" type="number" step="any" value="40"></label>
+        <label>Ue [V]<input id="opUe" type="number" step="any" value="0.5"></label>
+      </div>
+      <div class="row">
+        <button onclick="calcOpAmp(false)">Invertierend</button>
+        <button onclick="calcOpAmp(true)">Nichtinvertierend</button>
+      </div>
+      <div id="opOut" class="calcOut"></div>
+      <div class="formulaBox">inv: V = −R2/R1 · nichtinv: V = 1 + R2/R1</div>
+    </div>
+
+    <div class="card">
+      <h3>💡 LED / Z-Diode Vorwiderstand</h3>
+      <div class="calcGrid">
+        <label>Versorgung U [V]<input id="resU" type="number" step="any" value="12"></label>
+        <label>Bauteilspannung [V]<input id="resDrop" type="number" step="any" value="5.1"></label>
+        <label>Strom [mA]<input id="resI" type="number" step="any" value="25"></label>
+      </div>
+      <button onclick="calcSeriesRes()">Vorwiderstand</button>
+      <div id="resOut" class="calcOut"></div>
+      <div class="formulaBox">R = (U − UBauteil) / I</div>
+    </div>
+
+    <div class="card">
+      <h3>🔋 Leistung & Wirkungsgrad</h3>
+      <div class="calcGrid">
+        <label>Pin [W]<input id="etaIn" type="number" step="any" value="120"></label>
+        <label>Pout [W]<input id="etaOut" type="number" step="any" value="96"></label>
+      </div>
+      <button onclick="calcEta()">Berechnen</button>
+      <div id="etaOutBox" class="calcOut"></div>
+      <div class="formulaBox">η = Pout/Pin · 100 % · Pverlust = Pin − Pout</div>
+    </div>
+
+    <div class="card">
+      <h3>📺 Oszilloskop</h3>
+      <div class="calcGrid">
+        <label>Kästchen Periode<input id="oscDiv" type="number" step="any" value="5"></label>
+        <label>Zeit/Div [ms]<input id="oscMs" type="number" step="any" value="2"></label>
+        <label>Δt [ms]<input id="oscDt" type="number" step="any" value="5"></label>
+      </div>
+      <button onclick="calcOsc()">T, f & Phase</button>
+      <div id="oscOut" class="calcOut"></div>
+      <div class="formulaBox">T = Div · Zeit/Div · f = 1/T · φ = Δt/T · 360°</div>
+    </div>
+
+    <div class="card">
+      <h3>🎛️ Casio fx-87DE Plus – Kurzinfo</h3>
+      <p><b>REC → POL:</b> <code>Pol(x; y)</code></p>
+      <p><b>POL → REC:</b> <code>Rec(r; θ)</code></p>
+      <p><b>Wichtig:</b> Vorher die Winkeleinheit auf <b>Deg</b> stellen, wenn du mit Grad rechnest.</p>
+      <p class="muted">Der fx-87DE Plus kann diese Koordinatenumwandlung, hat aber keinen vollständigen CMPLX-Modus wie der fx-991DE Plus.</p>
+      <div class="notice">Für RLC: erst XL/XC bzw. Real-/Imaginärteil berechnen → dann mit <b>Pol(Real; Imag)</b> Betrag und Winkel holen.</div>
+    </div>
   </div>
 </section>
 
@@ -603,6 +741,69 @@ function resetProgress(){
 
 function renderNoteIndex(){const el=document.getElementById('noteIndex');if(!el)return;el.innerHTML='';document.querySelectorAll('#noteSheets .sheet').forEach((s,i)=>{if(s.style.display==='none')return;const a=document.createElement('button');a.className='miniBtn';const done=state.notesDone&&state.notesDone[i+1];a.textContent=(done?'✓ ':'')+(i+1)+'. '+s.querySelector('summary span').textContent.replace(/^\d+\.\s*/, '');a.onclick=()=>{s.open=true;s.scrollIntoView({behavior:'smooth',block:'start'})};el.appendChild(a)});updateNoteStatuses()}
 function filterNotes(){const q=(notesSearch?.value||'').toLowerCase();document.querySelectorAll('#noteSheets .sheet').forEach(s=>{const tag=s.dataset.tag||'',okTag=activeNoteTag==='all'||tag===activeNoteTag,okQ=!q||(s.dataset.title+' '+s.textContent).toLowerCase().includes(q);s.style.display=okTag&&okQ?'':'none'});renderNoteIndex()}
+
+
+function fmt(n,d=2){
+  if(!Number.isFinite(n)) return '—';
+  return Number(n.toFixed(d)).toLocaleString('de-DE',{maximumFractionDigits:d});
+}
+function calcRLC(){
+  const R=+rlcR.value, L=+rlcL.value/1000, C=+rlcC.value*1e-6, f=+rlcF.value;
+  if(!(f>0) || !(C>0) || L<0 || R<0){rlcOut.textContent='Bitte gültige Werte eingeben.';return}
+  const XL=2*Math.PI*f*L, XC=1/(2*Math.PI*f*C), im=XL-XC;
+  const mag=Math.hypot(R,im), phi=Math.atan2(im,R)*180/Math.PI;
+  const type=Math.abs(im)<1e-9?'resonant/ohmsch':im>0?'induktiv (+)':'kapazitiv (−)';
+  rlcOut.innerHTML=`XL = <strong>${fmt(XL)} Ω</strong><br>XC = <strong>${fmt(XC)} Ω</strong><br>Z = <strong>${fmt(R)} ${im>=0?'+':'−'} j${fmt(Math.abs(im))} Ω</strong><br>|Z| = <strong>${fmt(mag)} Ω</strong><br>φ = <strong>${fmt(phi)}°</strong> → ${type}`;
+}
+function calcRecPol(){
+  const a=+recA.value,b=+recB.value;
+  const r=Math.hypot(a,b),phi=Math.atan2(b,a)*180/Math.PI;
+  recPolOut.innerHTML=`r = <strong>${fmt(r)}</strong><br>θ = <strong>${fmt(phi)}°</strong><br>POL: <strong>${fmt(r)} ∠ ${fmt(phi)}°</strong>`;
+}
+function calcPolRec(){
+  const r=+polR.value,phi=+polPhi.value*Math.PI/180;
+  const a=r*Math.cos(phi),b=r*Math.sin(phi);
+  polRecOut.innerHTML=`a = <strong>${fmt(a)}</strong><br>b = <strong>${fmt(b)}</strong><br>REC: <strong>${fmt(a)} ${b>=0?'+':'−'} j${fmt(Math.abs(b))}</strong>`;
+}
+function calcFg(){
+  const R=+fgR.value,C=+fgC.value*1e-9;
+  if(!(R>0&&C>0)){fgOut.textContent='R und C müssen größer 0 sein.';return}
+  const fg=1/(2*Math.PI*R*C);
+  fgOut.innerHTML=`fg = <strong>${fmt(fg)} Hz</strong>${fg>=1000?` ≈ ${fmt(fg/1000,3)} kHz`:''}`;
+}
+function calcDb(){
+  const ue=+dbUe.value,ua=+dbUa.value;
+  if(!(ue>0&&ua>0)){dbOut.textContent='Ue und Ua müssen größer 0 sein.';return}
+  const db=20*Math.log10(ua/ue);
+  const ratio=ua/ue;
+  dbOut.innerHTML=`Ua/Ue = <strong>${fmt(ratio,4)}</strong><br>a = <strong>${fmt(db)} dB</strong><br>${db<0?'Dämpfung':db>0?'Verstärkung':'0 dB → gleich groß'}`;
+}
+function calcOpAmp(nonInv){
+  const r1=+opR1.value,r2=+opR2.value,ue=+opUe.value;
+  if(!(r1>0&&r2>=0)){opOut.textContent='Bitte gültige Widerstände eingeben.';return}
+  const v=nonInv?1+r2/r1:-r2/r1, ua=v*ue;
+  opOut.innerHTML=`${nonInv?'Nichtinvertierend':'Invertierend'}<br>V = <strong>${fmt(v,4)}</strong><br>Ua = <strong>${fmt(ua,4)} V</strong>`;
+}
+function calcSeriesRes(){
+  const u=+resU.value,drop=+resDrop.value,i=+resI.value/1000;
+  if(!(i>0) || u<=drop){resOut.textContent='Strom > 0 und Versorgung > Bauteilspannung nötig.';return}
+  const R=(u-drop)/i, p=i*i*R;
+  resOut.innerHTML=`R = <strong>${fmt(R)} Ω</strong><br>PR = <strong>${fmt(p,3)} W</strong>`;
+}
+function calcEta(){
+  const pin=+etaIn.value,pout=+etaOut.value;
+  if(!(pin>0) || pout<0){etaOutBox.textContent='Bitte gültige Leistungen eingeben.';return}
+  const eta=pout/pin*100,pv=pin-pout;
+  etaOutBox.innerHTML=`η = <strong>${fmt(eta)} %</strong><br>Pverlust = <strong>${fmt(pv)} W</strong>${eta>100?'<br>⚠️ Über 100 % → Eingaben prüfen.':''}`;
+}
+function calcOsc(){
+  const div=+oscDiv.value,ms=+oscMs.value,dt=+oscDt.value;
+  const Tms=div*ms;
+  if(!(Tms>0)){oscOut.textContent='Periodendauer muss größer 0 sein.';return}
+  const f=1000/Tms, phi=dt/Tms*360;
+  oscOut.innerHTML=`T = <strong>${fmt(Tms)} ms</strong><br>f = <strong>${fmt(f)} Hz</strong><br>φ = <strong>${fmt(phi)}°</strong>`;
+}
+
 
 renderTopics();stats();updateProfileUI();updateNoteStatuses();renderNoteIndex();
 </script>

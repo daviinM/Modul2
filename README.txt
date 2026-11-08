@@ -1,11 +1,17 @@
-Modul 2 Lernapp v5.1 – ausführlichere Lernfragen
+Modul 2 Lernapp v5.2 – Modul-2-Rechner
 
-Überarbeitet:
-- 204 kurze/stichwortartige Fragen ausführlicher formuliert.
-- Fragen fordern jetzt klarer zum Erklären, Rechnen, Begründen oder Interpretieren auf.
-- Antworten, Lerninhalte und Prüfungslogik bleiben unverändert.
-- Profile, Fortschritt, 21 Lernzettel, Schwierigkeitsgrade und Probeklausuren bleiben erhalten.
+Neu:
+- Eigener Bereich „Modul-2-Rechner“
+- RLC-Reihe: XL, XC, komplexes Z, Betrag, Winkel
+- REC ↔ POL
+- RC-Grenzfrequenz
+- Spannungsverhältnis in dB
+- OPV invertierend / nichtinvertierend
+- LED-/Z-Dioden-Vorwiderstand inkl. Verlustleistung
+- Wirkungsgrad und Verlustleistung
+- Oszilloskop: Periodendauer, Frequenz, Phase
+- Casio fx-87DE Plus Kurzinfo zu Pol/Rec
+- Alle bisherigen Profile, Lernzettel, Spickzettel, Quizmodi und Probeklausuren bleiben erhalten.
 
-Beispiel:
-„Division in Polarform?“
-→ „Wie geht man bei der Division zweier komplexer Zahlen in Polarform vor?“
+Hinweis:
+Der Rechner dient zum Lernen und Kontrollieren. In der Prüfung zuerst den Rechenweg bzw. die verwendete Formel erkennen.
